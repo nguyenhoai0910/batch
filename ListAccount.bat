@@ -1,5 +1,5 @@
 @echo off
-title List Account
+title Note Account
 CLS
 COLOR 06
 :No
@@ -8,7 +8,7 @@ set account=
 set name=
 set passwd=
 set menu=
-set pathfile="D:\NguyenHoai\MyDocuments\####"
+set pathfile="D:\NguyenHoai\MyDocuments\CCQ&&22A\217220015\Account"
 CLS
 echo.
 echo 1. Tao thong tin.
