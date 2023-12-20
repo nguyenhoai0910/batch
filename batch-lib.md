@@ -23,11 +23,12 @@ echo %_YesterdayY%
 ## 2. Quater-of-year
 ```batch
 @ECHO off
-set _yyyy=%DATE:~6,4%
-set _mm=%DATE:~0,2%
+set _yyyy=%DATE:~10,4%
+set _mm=%DATE:~4,2%
 set _mm=%_mm: =0%
-if %_mm% LEQ 3 (set _currentQtr=01-03) else if %_mm% LEQ 6 (set _currentQtr=04-06) else if %_mm% LEQ 9 (set _currentQtr=07-09) else if %_mm% LEQ 12 (set _currentQtr=10-12)
-echo Quater of year: %_currentQtr% of %_yyyy%
+if %_mm% LEQ 3 (set _currentQtrdetail=01-03) else if %_mm% LEQ 6 (set _currentQtrdetail=04-06) else if %_mm% LEQ 9 (set _currentQtrdetail=07-09) else if %_mm% LEQ 12 (set _currentQtrdetail=10-12)
+if %_mm% LEQ 3 (set _currentQtr=01) else if %_mm% LEQ 6 (set _currentQtr=02) else if %_mm% LEQ 9 (set _currentQtr=03) else if %_mm% LEQ 12 (set _currentQtr=04)
+echo Quater of year: %_currentQtr% of %_yyyy% (%_currentQtrdetail%/%_yyyy%)
 ```
 
 ## 3. Show All site IIS
