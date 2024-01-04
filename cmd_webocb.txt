@@ -1,0 +1,69 @@
+pushd \\10.102.20.10\D$
+popd \\10.102.20.10\D$
+pushd \\10.102.84.10\D$
+popd \\10.102.84.10\D$
+REM ============================SET VARIBLE =======================================================
+SET _PATH1=C:\Users\Soadmin2\Desktop
+SET _PATH2=D:\Website\website-public\dist\ocb-fe\browser\Uploads
+SET _PATH3=D:\Website\website-public\dist\ocb-fe\browser\Uploads\ref\other
+SET _PATH4=D:\Website\website-public\dist\ocb-fe\browser\Uploads\cdn\mobile
+
+REM ==========================COPY FOLDER=========================================================
+SET _PATH0=https://ocb.com.vn/uploads/cdn/mobile/
+SET _PATH0=%_PATH0:https://www.ocb.com.vn/uploads/=\%
+SET _PATH0=%_PATH0:https://ocb.com.vn/uploads/=\%
+SET _PATH0=%_PATH0:/=\%
+SET _PATH1=C:\Users\Soadmin2\Desktop
+SET _PATH4=Website\website-public\dist\ocb-fe\browser\Uploads%_PATH0%
+echo %_PATH4%
+if not exist %_PATH4% mkdir %_PATH4%
+
+SET _FOLDER1="appinit"
+Xcopy %_PATH1%\%_FOLDER1% %_PATH4%\%_FOLDER1% /E /H /C /I /Y
+SET _FOLDER2="banner"
+Xcopy %_PATH1%\%_FOLDER2% %_PATH4%\%_FOLDER2% /E /H /C /I /Y
+SET _FOLDER3="bg"
+Xcopy %_PATH1%\%_FOLDER3% %_PATH4%\%_FOLDER3% /E /H /C /I /Y
+SET _FOLDER4="icons"
+Xcopy %_PATH1%\%_FOLDER4% %_PATH4%\%_FOLDER4% /E /H /C /I /Y
+REM ===========================COPY FILE========================================================
+SET _PATH1=C:\Users\Soadmin2\Desktop
+SET _PATH0=https://ocb.com.vn/uploads/cdn/mobile/tnc/ghtk/
+SET _PATH0=%_PATH0:https://www.ocb.com.vn/uploads/=\%
+SET _PATH0=%_PATH0:https://ocb.com.vn/uploads/=\%
+SET _PATH0=%_PATH0:/=\%
+SET _PATH3=Website\website-public\dist\ocb-fe\browser\Uploads%_PATH0%
+echo %_PATH3%
+if not exist %_PATH3% mkdir %_PATH3%
+
+REM COPY FILE TO REF OTHER OPTION _PATH1 _PATH3 _FILE1
+REM SET _PATH3=C:\Users\Soadmin2\Desktop
+SET _FILE1=maintenance.png
+ren %_PATH3%\%_FILE1% Deprecated_%date:~10%%date:~4,2%%date:~7,2%_%_FILE1%
+copy %_PATH1%\%_FILE1% %_PATH3%
+
+REM SET _PATH3=C:\Users\Soadmin2\Desktop
+SET _FILE2=maintenance_land.png
+ren %_PATH3%\%_FILE2% Deprecated_%date:~10%%date:~4,2%%date:~7,2%_%_FILE2%
+copy %_PATH1%\%_FILE2% %_PATH3%
+
+REM ============================DELETE FILE / FOLDER=======================================================
+SET _PATH0=https://ocb.com.vn/uploads/cdn/mobile/bg/20220601/
+echo _PATH0
+SET _PATH0=%_PATH0:https://www.ocb.com.vn/uploads/=\%
+echo _PATH0
+SET _PATH0=%_PATH0:https://ocb.com.vn/uploads/=\%
+echo _PATH0
+SET _PATH0=%_PATH0:/=\%
+SET _PATH1=C:\Users\Soadmin2\Desktop
+SET _PATH4=Website\website-public\dist\ocb-fe\browser\Uploads%_PATH0%
+echo %_PATH4%
+if not exist %_PATH3% mkdir %_PATH3%
+
+SET _DEL1="icons/Mass_01/NAPTIENGIAOTHONG.png"
+SET _DEL1=%_DEL1:/=\%
+DEL %_PATH4%\%_DEL1%
+
+SET _DEL2="icons/Mass_01/NAPTIENGIAOTHONG.png"
+SET _DEL2=%_DEL2:/=\%
+DEL %_PATH4%\%_DEL2%

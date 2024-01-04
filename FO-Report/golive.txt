@@ -1,0 +1,18 @@
+REM =======================================
+set _dateX=%DATE:~10,4%%DATE:~4,2%%DATE:~7,2%
+set _timeX=%TIME:~0,2%%TIME:~3,2%
+set _dateX=%_dateX: =0%
+set _timeX=%_timeX: =0%
+REM =======================================
+echo %_dateX%
+echo %_timeX%
+
+echo //Backup > C:\Website\_Backup\FOReport\%_dateX%\golive.txt
+echo %_dateX%_%_timeX% >> C:\Website\_Backup\FOReport\%_dateX%\golive.txt
+if not exist C:\Website\_Backup\FOReport\%_dateX%\ mkdir C:\Website\_Backup\FOReport\%_dateX%\
+xcopy C:\Website\FOReport\Areas\CustomerOnBoarding C:\Website\_Backup\FOReport\%_dateX%\Areas\CustomerOnBoarding /D /E /H /C /I /Y /F >> C:\Website\_Backup\FOReport\%_dateX%\golive.txt
+
+
+echo //Golive >> C:\Website\_Backup\FOReport\%_dateX%\golive.txt
+echo %_dateX%_%_timeX% >> C:\Website\_Backup\FOReport\%_dateX%\golive.txt
+xcopy C:\Users\%username%\Desktop\Areas\CustomerOnBoarding C:\Website\FOReport\Areas\CustomerOnBoarding /D /E /H /C /I /Y /F >> C:\Website\_Backup\FOReport\%_dateX%\golive.txt

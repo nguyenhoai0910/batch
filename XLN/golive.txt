@@ -1,0 +1,20 @@
+REM =======================================
+set _dateX=%DATE:~10,4%%DATE:~4,2%%DATE:~7,2%
+set _timeX=%TIME:~0,2%%TIME:~3,2%
+set _dateX=%_dateX: =0%
+set _timeX=%_timeX: =0%
+REM =======================================
+echo %_dateX%
+echo %_timeX%
+
+echo //Backup > C:\_Backup\XLN\%_dateX%\golive.txt
+echo %_dateX%_%_timeX% >> C:\_Backup\XLN\%_dateX%\golive.txt
+xcopy C:\xulyno\bin C:\_Backup\XLN\%_dateX%\bin /D /E /H /C /I /Y /F >> C:\_Backup\XLN\%_dateX%\golive.txt
+xcopy C:\xulyno\Views\Home\XLN\PLTT C:\_Backup\XLN\%_dateX%\Views\Home\XLN\PLTT /D /E /H /C /I /Y /F >> C:\_Backup\XLN\%_dateX%\golive.txt
+xcopy C:\xulyno\Views\Home\XLN\LOAN C:\_Backup\XLN\%_dateX%\Views\Home\XLN\LOAN /D /E /H /C /I /Y /F  >> C:\_Backup\XLN\%_dateX%\golive.txt
+
+echo //Golive >> C:\_Backup\XLN\%_dateX%\golive.txt
+echo %_dateX%_%_timeX% >> C:\_Backup\XLN\%_dateX%\golive.txt
+xcopy C:\Users\%username%\Desktop\bin C:\xulyno\bin /D /E /H /C /I /Y /F >> C:\_Backup\XLN\%_dateX%\golive.txt
+xcopy C:\Users\%username%\Desktop\LOAN C:\xulyno\Views\Home\XLN\LOAN /D /E /H /C /I /Y /F >> C:\_Backup\XLN\%_dateX%\golive.txt
+xcopy C:\Users\%username%\Desktop\PLTT C:\xulyno\Views\Home\XLN\PLTT /D /E /H /C /I /Y /F >> C:\_Backup\XLN\%_dateX%\golive.txt

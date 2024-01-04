@@ -1,0 +1,20 @@
+REM =======================================
+set _dateX=%DATE:~10,4%%DATE:~4,2%%DATE:~7,2%
+set _timeX=%TIME:~0,2%%TIME:~3,2%
+set _dateX=%_dateX: =0%
+set _timeX=%_timeX: =0%
+REM =======================================
+echo %_dateX%
+echo %_timeX%
+if not exist D:\Website\_Backup\QLDT\%_dateX% mkdir D:\Website\_Backup\QLDT\%_dateX%
+
+REM Environment
+
+echo //Backup > D:\Website\_Backup\QLDT\%_dateX%\golive.txt
+echo %_dateX%_%_timeX% >> D:\Website\_Backup\QLDT\%_dateX%\golive.txt
+xcopy D:\Website\QLDOITAC\bin D:\Website\_Backup\QLDT\%_dateX%\bin /D /E /H /C /I /Y /F >> D:\Website\_Backup\QLDT\%_dateX%\golive.txt
+
+echo //Golive >> D:\Website\_Backup\QLDT\%_dateX%\golive.txt
+echo %_dateX%_%_timeX% >> D:\Website\_Backup\QLDT\%_dateX%\golive.txt
+xcopy C:\Users\%username%\Desktop\bin\QLDoiTac.dll D:\Website\QLDOITAC\bin /D /E /H /C /I /Y /F >> D:\Website\_Backup\QLDT\%_dateX%\golive.txt
+

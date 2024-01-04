@@ -1,0 +1,5 @@
+@echo off
+SET _PATH=C:\Scripts
+SET _PATH1=C:\Scripts-logs
+IF NOT EXIST %_PATH% MKDIR %_PATH%
+IF NOT EXIST %_PATH1% MKDIR %_PATH1%

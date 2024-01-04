@@ -1,0 +1,15 @@
+@echo off
+_input=C:\Users\%username%\Desktop\input.txt
+_path1=C:\Users\%username%\Downloads\export_%date:~10%%date:~4,2%%date:~7,2%\
+_path2=F:\trulyonline\onboarding_customer
+
+if not exist C:\Users\%username%\Downloads\export_%date:~10%%date:~4,2%%date:~7,2%\ mkdir C:\Users\%username%\Downloads\export_%date:~10%%date:~4,2%%date:~7,2%\
+
+
+if not exist "test_csv.txt" echo "%a %b > test_csv.txt
+for /f "usebackq tokens=1-2 delims=^T" %a in ("test_csv.txt") do ( SET %%a=%%%a:/=\% &  echo %a %b >> %_input%)
+if not exist %_input% echo "REM %a:PATH_IMG | %b:CIF" > %_input%
+for /f "usebackq tokens=1-2 delims=^T" %a in ("%_input&") do ( echo %a %b && if not exist "%_path1%\%%b\" mkdir "%_path1%\%%b\" && copy "%_path2%\%%a" "%_path1%\%%b\" ) 
+
+REM %a:CIF | %b:# | %c:image | %d:%c:image | %e:%c:image
+REM for /f "usebackq tokens=1-5 delims=," %a in ("%_input%") do ( echo %a %b %c %d %e && if not exist "test/%a" mkdir "test/%a" && copy "%c" "test/%a/" && copy "%d" "test/%a/" && copy "%e" "test/%a/" ) 
